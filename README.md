@@ -33,6 +33,8 @@ Remember that Typst is much more powerful, but LaTeX has a longer history, so th
 
 - **[quarto-clean](./.claude/skills/quarto-clean/)** - Clean a Quarto manuscript (`.qmd`) by replacing LaTeX holdovers with proper Quarto/Pandoc syntax, so the document renders correctly to HTML, Word, and Typst PDF. Covers citations (`\citep` → `[@key]`), cross-references (`\ref` → `@label`), figures, tables, text formatting, inline math, hyperlinks, footnotes, list environments, section headings, and R Markdown chunk options.
 
+- **[markdown-unwrap](./.claude/skills/markdown-unwrap/)** - Reflow a hard-wrapped markdown or Quarto file so that each sentence occupies its own line. Joins mid-sentence line breaks and re-breaks at sentence boundaries, while preserving blank lines, headings, fenced code blocks, block quotes, and list items.
+
 
 ## License
 
