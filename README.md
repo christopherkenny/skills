@@ -41,6 +41,8 @@ Remember that Typst is much more powerful, but LaTeX has a longer history, so th
 
 - **[paper-summary](./skills/paper-summary/SKILL.md)** - Summarize an academic paper (PDF or text) into a structured 400–600 word quick-reference note covering primary contributions, major questions and answers (with point estimates), methods and data, and limitations and robustness. Includes BibTeX citation from Google Scholar and keyword metadata.
 
+- **[assess-outline](./skills/assess-outline/SKILL.md)** - Assess a detailed research paper outline (`.qmd` file) against structured criteria: research question, contributions to existing literature, hypotheses, data, results, robustness, and section ordering. Detects causal papers from the abstract and assesses identification strategy only when relevant. Produces a summary report with actionable suggestions.
+
 
 ## License
 
