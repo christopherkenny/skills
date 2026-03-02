@@ -19,27 +19,27 @@ Remember that Typst is much more powerful, but LaTeX has a longer history, so th
 
 ### Writing
 
-- **[proofread](./.claude/skills/proofread/SKILL.md)** - Check a Quarto manuscript for grammar, spelling, punctuation, and academic writing quality. Report is organized by the paper's section headings; pass `@sec-label` to review a single section.
+- **[proofread](./skills/proofread/SKILL.md)** - Check a Quarto manuscript for grammar, spelling, punctuation, and academic writing quality. Report is organized by the paper's section headings; pass `@sec-label` to review a single section.
 
-- **[apsa-style](./.claude/skills/apsa-style/SKILL.md)** - Check a Quarto manuscript against the *APSA Style Manual for Political Science* (2018, updated 2023), covering numbers, capitalization, citations, abbreviations, italics, and neutral language. Report is organized by the paper's section headings; pass `@sec-label` to review a single section.
+- **[apsa-style](./skills/apsa-style/SKILL.md)** - Check a Quarto manuscript against the *APSA Style Manual for Political Science* (2018, updated 2023), covering numbers, capitalization, citations, abbreviations, italics, and neutral language. Report is organized by the paper's section headings; pass `@sec-label` to review a single section.
 
-- **[write-well](./.claude/skills/write-well/SKILL.md)** - Check a Quarto manuscript against William Zinsser's *On Writing Well*, covering clutter, weak verbs, hollow qualifiers, clichés, inflated academic voice, poor leads and endings, and unclear explanation. Report is organized by the paper's section headings; pass `@sec-label` to review a single section.
+- **[write-well](./skills/write-well/SKILL.md)** - Check a Quarto manuscript against William Zinsser's *On Writing Well*, covering clutter, weak verbs, hollow qualifiers, clichés, inflated academic voice, poor leads and endings, and unclear explanation. Report is organized by the paper's section headings; pass `@sec-label` to review a single section.
 
-- **[pseudo-merge](./.claude/skills/pseudo-merge/SKILL.md)** - Convert a `proofread`, `apsa-style`, or `write-well` report into git merge conflict markers in the original `.qmd` file, so each suggestion can be accepted or rejected using Positron's merge conflict UI.
+- **[pseudo-merge](./skills/pseudo-merge/SKILL.md)** - Convert a `proofread`, `apsa-style`, or `write-well` report into git merge conflict markers in the original `.qmd` file, so each suggestion can be accepted or rejected using Positron's merge conflict UI.
 
 ### Typesetting
 
-- **[latex-to-typst](./.claude/skills/latex-to-typst/SKILL.md)** - Translate a LaTeX article (`.tex`) to Typst (`.typ`). Covers document structure, text formatting, page layout, sectioning, lists, math equations and symbols, figures, tables, bibliography, cross-references, TikZ-to-CeTZ diagrams, and code blocks. Includes comprehensive LaTeX-to-Typst symbol mapping tables.
+- **[latex-to-typst](./skills/latex-to-typst/SKILL.md)** - Translate a LaTeX article (`.tex`) to Typst (`.typ`). Covers document structure, text formatting, page layout, sectioning, lists, math equations and symbols, figures, tables, bibliography, cross-references, TikZ-to-CeTZ diagrams, and code blocks. Includes comprehensive LaTeX-to-Typst symbol mapping tables.
 
-- **[latex-to-quarto](./.claude/skills/latex-to-quarto/SKILL.md)** - Convert a LaTeX article (`.tex`) to Quarto (`.qmd`). Covers preamble → YAML front matter, section headings, text formatting, math, citations (natbib/biblatex), cross-references, figures, tables, lists, footnotes, hyperlinks, and special characters.
+- **[latex-to-quarto](./skills/latex-to-quarto/SKILL.md)** - Convert a LaTeX article (`.tex`) to Quarto (`.qmd`). Covers preamble → YAML front matter, section headings, text formatting, math, citations (natbib/biblatex), cross-references, figures, tables, lists, footnotes, hyperlinks, and special characters.
 
-- **[quarto-clean](./.claude/skills/quarto-clean/SKILL.md)** - Clean a Quarto manuscript (`.qmd`) by replacing LaTeX holdovers with proper Quarto/Pandoc syntax, so the document renders correctly to HTML, Word, and Typst PDF. Covers citations (`\citep` → `[@key]`), cross-references (`\ref` → `@label`), figures, tables, text formatting, inline math, hyperlinks, footnotes, list environments, section headings, and R Markdown chunk options.
+- **[quarto-clean](./skills/quarto-clean/SKILL.md)** - Clean a Quarto manuscript (`.qmd`) by replacing LaTeX holdovers with proper Quarto/Pandoc syntax, so the document renders correctly to HTML, Word, and Typst PDF. Covers citations (`\citep` → `[@key]`), cross-references (`\ref` → `@label`), figures, tables, text formatting, inline math, hyperlinks, footnotes, list environments, section headings, and R Markdown chunk options.
 
-- **[markdown-unwrap](./.claude/skills/markdown-unwrap/SKILL.md)** - Reflow a hard-wrapped markdown or Quarto file so that each sentence occupies its own line. Joins mid-sentence line breaks and re-breaks at sentence boundaries, while preserving blank lines, headings, fenced code blocks, block quotes, and list items.
+- **[markdown-unwrap](./skills/markdown-unwrap/SKILL.md)** - Reflow a hard-wrapped markdown or Quarto file so that each sentence occupies its own line. Joins mid-sentence line breaks and re-breaks at sentence boundaries, while preserving blank lines, headings, fenced code blocks, block quotes, and list items.
 
 ### Research
 
-- **[paper-summary](./.claude/skills/paper-summary/SKILL.md)** - Summarize an academic paper (PDF or text) into a structured 400–600 word quick-reference note covering primary contributions, major questions and answers (with point estimates), methods and data, and limitations and robustness. Includes BibTeX citation from Google Scholar and keyword metadata.
+- **[paper-summary](./skills/paper-summary/SKILL.md)** - Summarize an academic paper (PDF or text) into a structured 400–600 word quick-reference note covering primary contributions, major questions and answers (with point estimates), methods and data, and limitations and robustness. Includes BibTeX citation from Google Scholar and keyword metadata.
 
 
 ## License
