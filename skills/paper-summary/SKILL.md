@@ -83,6 +83,8 @@ Write the summary as a markdown file with the following structure:
 
 ```markdown
 ---
+title: Full Paper Title
+authors: First Last, First Last, and First Last
 keywords: [keyword1, keyword2, keyword3, keyword4, keyword5]
 journal: Journal Name (or preprint archive, e.g., arXiv, SSRN, OSF Preprints)
 bibtex: |
@@ -98,7 +100,7 @@ bibtex: |
   }
 ---
 
-# [Full Paper Title] — [Last Name(s), Year]
+# [Full Paper Title]
 
 ## Primary Contributions
 
@@ -121,6 +123,28 @@ bibtex: |
 
 **400–600 words** across the four body sections (excluding the YAML block, the H1 heading, and section heading lines). This is a quick-reference document, not a précis of every argument.
 
+### Prose Formatting
+
+Write body text with **one sentence per line**. Do not wrap a sentence across multiple lines and do not place more than one sentence on the same line. Blank lines between sections are preserved as usual; within a section, each sentence starts at the left margin on its own line with no leading spaces.
+
+**Correct:**
+```
+The authors use a regression discontinuity design exploiting close elections.
+The running variable is the margin of victory in the previous election (Table 1).
+Bandwidth selection follows Calonico, Cattaneo, and Titiunik (2014).
+```
+
+**Incorrect (multiple sentences on one line):**
+```
+The authors use a regression discontinuity design exploiting close elections. The running variable is the margin of victory.
+```
+
+**Incorrect (sentence broken mid-line):**
+```
+The authors use a regression discontinuity design
+exploiting close elections.
+```
+
 ### Attribution and Quotation Rules
 
 - **Never copy sentences verbatim.** Paraphrase all claims in your own words.
@@ -137,7 +161,8 @@ After drafting the summary, evaluate it against the checklist below. **Print the
 ```
 PAPER SUMMARY CHECKLIST
 ========================
-[ ] H1 heading contains the full paper title and last name(s) with year
+[ ] YAML block has `title:` (full paper title) and `authors:` (all authors, natural order)
+[ ] H1 heading contains the full paper title
 [ ] YAML block has at least 3 keywords relevant to the paper's topic and method
 [ ] YAML block contains a `journal` field (journal name or preprint archive)
 [ ] YAML block contains a `bibtex` field with the BibTeX entry in Google Scholar format
@@ -150,6 +175,7 @@ PAPER SUMMARY CHECKLIST
 [ ] Body text references at least two specific pages, tables, or figures from the paper
 [ ] Word count is between 400 and 600 words (body sections only)
 [ ] No verbatim copying, OR at most 2 direct quotes each with quotation marks and page citation
+[ ] Each sentence in the body occupies exactly one line (no mid-sentence line breaks, no two sentences on one line)
 [ ] All four sections contain paper-specific claims, not generic filler
 ```
 
