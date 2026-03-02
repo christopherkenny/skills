@@ -37,6 +37,10 @@ Remember that Typst is much more powerful, but LaTeX has a longer history, so th
 
 - **[markdown-unwrap](./.claude/skills/markdown-unwrap/SKILL.md)** - Reflow a hard-wrapped markdown or Quarto file so that each sentence occupies its own line. Joins mid-sentence line breaks and re-breaks at sentence boundaries, while preserving blank lines, headings, fenced code blocks, block quotes, and list items.
 
+### Research
+
+- **[paper-summary](./.claude/skills/paper-summary/SKILL.md)** - Summarize an academic paper (PDF or text) into a structured 400–600 word quick-reference note covering primary contributions, major questions and answers (with point estimates), methods and data, and limitations and robustness. Includes BibTeX citation from Google Scholar and keyword metadata.
+
 
 ## License
 
