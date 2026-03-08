@@ -1,0 +1,31 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "skills",
+  "version": "1.0.0",
+  "description": "Claude Code plugins by Christopher Kenny.",
+  "owner": { "name": "Christopher T. Kenny", "url": "https://github.com/christopherkenny" },
+  "plugins": [
+    {
+      "name": "r-lsp",
+      "version": "0.1.0",
+      "source": "./plugins/r-lsp",
+      "description": "R language server for Claude Code, providing code intelligence for R, R Markdown, and Quarto files. Requires the languageserver R package.",
+      "category": "development",
+      "tags": ["r", "lsp", "language-server"],
+      "author": { "name": "Christopher T. Kenny", "url": "https://github.com/christopherkenny" },
+      "lspServers": {
+        "r": {
+          "command": "R",
+          "args": ["--no-echo", "-e", "languageserver::run()"],
+          "transport": "stdio",
+          "extensionToLanguage": {
+            ".R": "r",
+            ".Rmd": "rmd",
+            ".qmd": "rmd"
+          },
+          "maxRestarts": 3
+        }
+      }
+    }
+  ]
+}
