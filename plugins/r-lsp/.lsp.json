@@ -1,0 +1,13 @@
+{
+  "r": {
+    "command": "R",
+    "args": ["--no-echo", "-e", "languageserver::run()"],
+    "transport": "stdio",
+    "extensionToLanguage": {
+      ".R": "r",
+      ".Rmd": "rmd",
+      ".qmd": "rmd"
+    },
+    "maxRestarts": 3
+  }
+}
