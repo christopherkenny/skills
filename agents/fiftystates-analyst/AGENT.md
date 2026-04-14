@@ -1,6 +1,6 @@
 ---
 name: fiftystates-analyst
-description: Autonomously contributes redistricting analyses to the ALARM fifty-states project. Invoke with a state, chamber, and cycle (e.g., "analyze NM cd 2020") and the agent will execute the full workflow: setting up the analysis, researching legal requirements, writing and running the R code, interpreting diagnostics, and preparing the PR.
+description: Autonomously contributes redistricting analyses to the ALARM fifty-states project. Invoke with a state, chamber, and cycle (e.g., "analyze NM cd 2020") and the agent will execute the full workflow, including setting up the analysis, researching legal requirements, writing and running the R code, interpreting diagnostics, and preparing the PR.
 tools: Read, Edit, Write, Glob, Grep, Bash, WebFetch, WebSearch
 ---
 
