@@ -43,10 +43,14 @@ Remember that Typst is much more powerful, but LaTeX has a longer history, so th
 
 - **[assess-outline](./skills/assess-outline/SKILL.md)** - Assess a detailed research paper outline (`.qmd` file) against structured criteria: research question, contributions to existing literature, hypotheses, data, results, robustness, and section ordering. Detects causal papers from the abstract and assesses identification strategy only when relevant. Produces a summary report with actionable suggestions.
 
+## Available agents
+
+- **[r-analyst](./agents/r-analyst/AGENT.md)** - Review and write R analysis code with an emphasis on correctness, reproducibility, idiomatic R style, SQL-aware data movement, package hygiene, tests, documentation, and clear analytical workflows.
+
 
 ## License
 
-These are licensed under the [MIT license](LICENSE).
+All skills and agents listed in the README are licensed under the [MIT license](LICENSE).
 
 ## Reminder
 
