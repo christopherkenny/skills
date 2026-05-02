@@ -11,7 +11,7 @@
 ## Reproducible workflows
 
 - Keep portable entrypoints, such as a top-level `run.R`, when the workflow should be runnable directly.
-- Use `here::here()` for file paths in analysis scripts.
+- Use `here::here()` for file paths in analysis scripts. Never use `setwd()`.
 - Call `set.seed()` before any randomness.
 - If a script queries an API or external source, save the output rather than forcing every run to recompute it.
 
@@ -20,21 +20,24 @@
 - Write idiomatic R. Prefer well-tested tidyverse, r-lib, and Posit ecosystem functions over custom wrappers.
 - Use the native `|>` pipe. Do not use `%>%` or import `magrittr`.
 - Use single quotes for strings.
+- Always use braces on `if` statements, even for single-line bodies.
+- Single-line anonymous functions use `\(x) x + 1`. Multi-line anonymous functions use `function(x) { ... }` with braces.
 - Use `<-` for assignment throughout.
 - Use `snake_case` for all variable and column names.
-- Use `seq_len(n)`, not `1:n`; `1:n` breaks when `n = 0`.
-- Use integer literals with `L` suffix where the value is logically an integer (`1L`, `8L`).
+- Use `seq_len(n)`, not `1:n`. `1:n` breaks when `n = 0`.
+- Use integer literals with the `L` suffix where the value is logically an integer (`1L`, `8L`).
 - Use `glue::glue()` for string construction. Avoid `sprintf()` unless there is a clear formatting reason.
 - Use `glue::glue_sql()` when constructing SQL strings.
 - Use `fs` for file system operations in packages or when path manipulation is nontrivial.
-- Avoid deprecated tidyverse functions such as `recode()` and `transmute()`.
+- Avoid deprecated tidyverse functions: `recode()`, `transmute()`, and purrr's `_dfr`/`_dfc` variants. Use `imap() + list_rbind()` instead of `imap_dfr()`.
+- Use `anyNA(x)` not `any(is.na(x))`. Use `nlevels(x)` not `length(levels(x))`.
 
 ## Functions and abstractions
 
 - Use `match.arg()` with a character vector default for arguments that select between named options. Booleans are for flags that modify a single algorithm, not for choosing between algorithms.
 - Parameter names should mirror base R conventions: `method`, not `algorithm_mode`.
 - Follow a consistent verb-object naming pattern when writing helpers.
-- Internal functions do not need pseudo-private prefixes like `.pkg_*`; undocumented is sufficient.
+- Internal functions do not need pseudo-private prefixes like `.pkg_*`. Undocumented is sufficient.
 - Name files for the primary function or responsibility they contain.
 - Put nontrivial shared helpers in clearly named utility files.
 - Do not hide an entire analysis behind layers of helpers when the steps matter.
@@ -49,9 +52,9 @@
 ## Messages and errors
 
 - Use `cli::cli_warn()` and `cli::cli_inform()` instead of `warning()`, `message()`, or `cat()` for user-facing output.
-- `cli_warn()` is for actual problems only; use `cli_inform()` for status updates.
+- `cli_warn()` is for actual problems only. Use `cli_inform()` for status updates.
 - Add `.frequency = 'once'` to `cli_inform()` calls inside loops.
-- Do not use "safe" wrappers that suppress errors needed to diagnose failed analyses.
+- Do not use wrappers that suppress errors needed to diagnose failed analyses.
 
 ## Data, SQL, and performance
 
@@ -74,8 +77,14 @@
 - Use facets when comparing related quantities instead of awkward rescaling.
 - Use `scale_*()` for axis and legend labels. `labs()` is for titles and subtitles.
 - Keep themes and scales minimal unless they serve a clear purpose.
-- In exported package plot functions, do not set a default theme or call `theme_minimal()`; that is the user's prerogative.
+- In exported package plot functions, do not set a default theme or call `theme_minimal()`. That is the user's prerogative.
 - Do not hardcode aesthetic values that override ggplot2 defaults without reason.
+- Extract repeated theme code into a named `theme_*()` helper rather than duplicating it.
+
+## Script execution
+
+- On Windows, do not use `Rscript -e "..."` for multi-line or complex R code. It segfaults. Write the code to a `.R` file and run `Rscript path/to/file.R` instead.
+- Simple one-liners (`Rscript -e "devtools::test()"`) are fine.
 
 ## Reports, tables, and prose
 
@@ -84,23 +93,23 @@
 
 ## Package-specific fallback
 
-- If the task is inside an R package, keep `DESCRIPTION` clean: `Imports` are for packages used unconditionally; `Suggests` are for packages used only in tests, examples, or documentation.
-- Once a package is in `Imports`, remove `requireNamespace()` guards for it; they are dead code.
+- If the task is inside an R package, keep `DESCRIPTION` clean. `Imports` are for packages used unconditionally. `Suggests` are for packages used only in tests, examples, or documentation.
+- Once a package is in `Imports`, remove `requireNamespace()` guards for it. They are dead code.
 - Do not list base or recommended packages such as `stats` or `utils` in `DESCRIPTION` unless there is a real reason.
 - Use `devtools::check()` rather than raw commands that leave `Rcheck` directories behind.
 - If a package is not public yet, prefer cleaning up the API directly over adding compatibility shims.
 - Write individual roxygen blocks per function. Do not use `@describeIn` or `@name` group patterns.
-- Do not use `@inheritParams`; write the relevant parameter documentation explicitly for each function.
+- Do not use `@inheritParams`. Write the relevant parameter documentation explicitly for each function.
 - Each exported function should have its own title, `@description`, `@param`, `@return`, and useful runnable `@examples`.
 - Never use `\dontrun{}` or `\donttest{}` in examples. Use `tempfile()`, small real examples, and explicit `requireNamespace()` guards for optional packages.
 - Keep roxygen, pkgdown, NEWS, vignettes, and code in sync.
-- In pre-release packages, avoid release-note framing such as "legacy", "new", "now", or "fixed"; describe current feature coverage instead.
+- In pre-release packages, avoid release-note framing such as "legacy", "new", "now", or "fixed". Describe current feature coverage instead.
 - Tests should verify package behavior, not basic facts about R or fixture data.
 - Do not put `expect_*()` calls inside loops.
 - Consolidate near-duplicate tests.
 - Do not clutter tests with explicit default arguments when those are already the defaults.
 - Put shared test helpers in a common test setup file instead of copying them around.
-- Add regression tests for real failure modes and edge cases. Do not add regression tests for code that was removed; that is not a regression.
+- Add regression tests for real failure modes and edge cases. Do not add regression tests for code that was removed. That is not a regression.
 - Use `skip_if()` when a test depends on a suggested package.
 - Delete tests that add runtime without testing anything meaningful.
 
@@ -109,4 +118,5 @@
 - Comments explain why: a constraint, an invariant, an analytic decision, or a workaround.
 - Do not narrate what the code already says.
 - Keep comments that explain algorithmic reasoning or how code maps to a reference implementation.
-- Remove noisy section headers and informal labels that do not help the reader.
+- In analysis scripts, use `# Section Name ----` headers to delineate top-level sections. That is the maximum decoration; no further nesting or embellishment.
+- In package code, do not use section headers at all.
