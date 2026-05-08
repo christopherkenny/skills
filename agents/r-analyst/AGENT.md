@@ -31,7 +31,7 @@
 - Use `fs` for file system operations in packages or when path manipulation is nontrivial.
 - Avoid deprecated tidyverse functions: `recode()`, `transmute()`, and purrr's `_dfr`/`_dfc` variants. Use `imap() + list_rbind()` instead of `imap_dfr()`.
 - Use `anyNA(x)` not `any(is.na(x))`. Use `nlevels(x)` not `length(levels(x))`.
-- Never use the `.by` arugment of `summarize()` as this obfuscates the grouping. Always use explicit `group_by()` beforehand and handle `.groups` inside `summarize()`.
+- Never use the `.by` argument of `summarize()` or `mutate()` as this obfuscates the grouping. Always use an explicit `group_by()` beforehand and use `.groups` inside `summarize()`, if applicable, or use `ungroup()`.
 
 ## Functions and abstractions
 
