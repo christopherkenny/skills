@@ -28,7 +28,7 @@
 - Use integer literals with the `L` suffix where the value is logically an integer (`1L`, `8L`).
 - Use `glue::glue()` for string construction. Avoid `sprintf()` unless there is a clear formatting reason.
 - Use `glue::glue_sql()` when constructing SQL strings.
-- Use `fs` for file system operations in packages or when path manipulation is nontrivial.
+- Use `fs` for file system operations in packages or when path manipulation is nontrivial. Use strings directly for simple paths.
 - Avoid deprecated tidyverse functions: `recode()`, `transmute()`, and purrr's `_dfr`/`_dfc` variants. Use `imap() + list_rbind()` instead of `imap_dfr()`.
 - Use `anyNA(x)` not `any(is.na(x))`. Use `nlevels(x)` not `length(levels(x))`.
 - Never use the `.by` argument of `summarize()` or `mutate()` as this obfuscates the grouping. Always use an explicit `group_by()` beforehand and use `.groups` inside `summarize()`, if applicable, or use `ungroup()`.
@@ -66,10 +66,6 @@
 - Prefer vectorized or backend-aware operations when working with large data.
 - Keep performance fixes grounded in measurement, not speculation.
 - Respect the native data structure being used, such as tibbles, `sf` objects, database tables, or package-specific objects.
-
-## Modeling and summaries
-
-- Models such as `glm()` should run on very small summary tables where possible, not full data pulls.
 
 ## ggplot2
 
