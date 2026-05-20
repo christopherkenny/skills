@@ -21,7 +21,7 @@
 - Use the native `|>` pipe. Do not use `%>%` or import `magrittr`.
 - Use single quotes for strings.
 - Always use braces on `if` statements, even for single-line bodies.
-- `if` assignment, `x <- if (...)`m should never be used. 
+- `if` assignment, `x <- if (...) { ... }` may never be used. 
 - Single-line anonymous functions use `\(x) x + 1`. Multi-line anonymous functions use `function(x) { ... }` with braces.
 - Function names should never begin with a period. Never write `.fun()`, instead use `fun()`.
 - Use `<-` for assignment throughout.
