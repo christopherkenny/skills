@@ -75,10 +75,13 @@
 - Reshape data with `pivot_*()` before plotting rather than mapping awkwardly in `aes()`.
 - Use facets when comparing related quantities instead of awkward rescaling.
 - Use `scale_*()` for axis and legend labels. `labs()` is for titles and subtitles.
+- Do not add `labs(subtitle = ...)` or `labs(caption = ...)` to figures when they are for an academic article.
 - Keep themes and scales minimal unless they serve a clear purpose.
 - In exported package plot functions, do not set a default theme or call `theme_minimal()`. That is the user's prerogative.
-- Do not hardcode aesthetic values that override ggplot2 defaults without reason.
+- Do not hardcode aesthetic values that override ggplot2 defaults without reason. Never pick one-off colors.
 - Extract repeated theme code into a named `theme_*()` helper rather than duplicating it.
+- Do not resize individual geoms (e.g., `size =`, `linewidth =`) or theme elements (`base_size`, `legend.key.width`, `plot.subtitle` sizing) away from the defaults unless there's a specific problem to fix.
+- Do not map `color`/`fill`/`shape` to a variable that's already encoded by a facet or by the categorical axis it's plotted against.
 
 ## Script execution
 
